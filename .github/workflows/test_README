@@ -1,1 +1,17 @@
-
+name: Validação do Projeto
+on:
+  push:
+jobs:
+  build:
+   runs-on: ubuntu-latest
+   steps:
+      - run: echo "Iniciando o Workflow"
+      - name: checkout
+        uses: actions/checkout@v5
+      - name: log o nome do repositório 
+        run: echo  ${{ github.repository}}
+      - name: log o nome do usuário
+        run: echo ${{ github.actor}}
+      - name: Verificação do README.md
+        run: find "README.md"
+      - run: echo "Validação concluida"
